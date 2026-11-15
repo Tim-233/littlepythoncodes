@@ -1,1 +1,36 @@
+def error_handle(a):
+    try:
+        a = int(a)
+        return a
+    except ValueError:
+        print("Please enter a whole number")
+        return None
+list = [5, 9, 1, 4, 2, 8, 3, 7, 6,]
+position = 0
+num = None
+print(list)
+while num == None:
+    num = error_handle(input("which number do you want to find: "))
+for i in range(9):
+    if num == list[position]:
+        print(f"{num} is equal to {list[position]}")
+        print(f"{num} has been found")
+        position = position + 1
+        say = f"{num} is the {position}nd number in this list"
+        if position < 4:
+            if position < 3:
+                if position < 2:
+                    print(say.replace("nd", "st"))
+                else:
+                    print(say)
+            else:
+                print(say.replace("nd", "rd"))
+        else:
+            print(say.replace("nd", "th"))
+        break
+    else:
+        print(f"{num} is not equal to {list[position]}")
+        position = position + 1
+if position > 8:
+    print(f"{num} is not in the list")
 
