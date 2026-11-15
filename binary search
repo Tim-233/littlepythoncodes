@@ -1,1 +1,32 @@
-
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+num = None
+print(list)
+while num == None:
+    num = (input("Which number do you want to find: "))
+    try:
+        num = int(num)
+    except ValueError:
+        print("Please enter a whole number")
+        num = None
+while len(list) > 0:
+    if len(list) % 2 == 0:
+        position = int(len(list) / 2) - 1
+    else:
+        position = int(len(list) / 2)
+    print(f"going to {list[position]}")
+    if num < list[position]:
+        print(f"{num} < {list[position]}; \
+deleting numbers {list[position]} - {list[-1]}\n")
+        del list[position:]
+        print(list)
+    elif num > list[position]:
+        print(f"{num} > {list[position]}; \
+deleting numbers {list[0]} - {list[position]}\n")
+        del list[:position + 1]
+        print(list)
+    else:
+        print(f"{num} = {list[position]}")
+        print(f"{num} has been found!")
+        break
+if len(list) == 0:
+    print(f"{num} is not in the list")
