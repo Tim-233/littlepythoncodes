@@ -1,1 +1,18 @@
+def error_handle (a):
+    try:
+        a = int(a)
+        return a
+    except ValueError:
+        print("Please provide whole numbers only")
+        return None
+num = None
+add = 1
+print("Create a triangular sequence by providing a term")
+while num == None:
+    num = error_handle(input("Enter number: "))
+print(f"{num},")
+for i in range (10):
+    num = num + add
+    print(f"{num},")
+    add = add + 1
 
